@@ -16,8 +16,12 @@ the method described in
 # Usage
 
 The [documentation](https://pages.nist.gov/ThreeBodyTB.jl/) for
-ThreeBodyTB.jl covers detailed usage. The python wrapper can access
-any function from ThreeBodyTB.jl. For example, the Julia function `makecrys` can be accessed as follows:
+ThreeBodyTB.jl covers detailed usage of the main code. The python
+wrapper can access any function from ThreeBodyTB.jl by prepending
+`tb3.jl.` for exported functions or by replacing `ThreeBodyTB.jl` for
+non-exported functions. For example, the Julia function `makecrys` can
+be accessed as follows:
+
 ```
 >>> import tb3py_test as tb3
 >>> c = tb3py_test.jl.makecrys("POSCAR_example")
@@ -36,7 +40,8 @@ Si   0.25000  0.25000  0.25000
 >>>
 ```
 
-and an energy calculation and bandstructure calculation be performed as
+and an energy calculation and band structure calculation can be
+performed as
 
 ```
 >>> en, tbc, flag = tb3.jl.scf_energy(c)
@@ -45,7 +50,7 @@ and an energy calculation and bandstructure calculation be performed as
 ```
 which will produce output like
 
-<img align="left" src="t.png" alt="logo" width="200" >
+<img align="left" src="t.png" alt="logo" width="600" >
 
 Basically, you need to write `tb3.jl.` before normal commands. A tutorial is available [here](https://pages.nist.gov/ThreeBodyTB.jl/ug_run/#Running-tight-binding-calculations)
 
