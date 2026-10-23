@@ -29,10 +29,10 @@
 
 ---
 categories:
-  # - ai-ml
+  - ai-ml
   # - performance-and-workflow
   - scientific-software
-  # - simulation
+  - simulation
   # - tools
   # - visualization
 
@@ -68,21 +68,21 @@ themes:
   #     - Structural engineering
   #     - Sustainable buildings
   #
-  # - Chemistry
+  - Chemistry
   #     - Analytical chemistry
   #     - Chemical engineering and processing
   #     - Chemical thermodynamics and chemical properties
   #     - Molecular characterization
-  #     - Theoretical chemistry and modeling
+      - Theoretical chemistry and modeling
   #     - Thermochemical properties
   #
-  # - Electronics
+  - Electronics
   #     - Electromagnetics
   #     - Flexible electronics
   #     - Magnetoelectronics
   #     - Optoelectronics
   #     - Organic electronics
-  #     - Semiconductors
+      - Semiconductors
   #     - Sensors
   #     - Superconducting electronics
   #
@@ -128,8 +128,8 @@ themes:
   #     - Precision medicine
   #     - Regenerative medicine
   #
-  # - Information Technology
-  #     - Artificial intelligence
+  - Information Technology
+      - Artificial intelligence
   #     - Biometrics
   #     - Cloud computing and virtualization
   #     - Complex systems
@@ -202,8 +202,8 @@ themes:
   #     - Systems integration
   #     - Technology commercialization
   #
-  # - Materials
-  #     - Ceramics
+  - Materials
+      - Ceramics
   #     - Composites
   #     - Concrete and cement
   #     - Materials characterization
@@ -211,19 +211,19 @@ themes:
   #         - Magnetic properties
   #         - Mechanical properties
   #         - Thermal properties
-  #     - Metals
-  #     - Modeling and computational material science
+      - Metals
+      - Modeling and computational material science
   #     - Polymers
   #     - Superconductors
   #
-  # - Mathematics and Statistics
+  - Mathematics and Statistics
   #     - Experiment design
   #     - Image and signal processing
   #     - Mathematical knowledge management
-  #     - Modeling and simulation research
-  #     - Numerical methods and software
+      - Modeling and simulation research
+      - Numerical methods and software
   #     - Statistical analysis
-  #     - Uncertainty quantification
+      - Uncertainty quantification
   #
   # - Metrology
   #     - Acoustic/vibration metrology
@@ -268,17 +268,17 @@ themes:
   #     - Best practices
   #     - Leadership development
   #
-  # - Physics
+  - Physics
   #     - Atomic, molecular and quantum
   #     - Biological physics
-  #     - Condensed matter
-  #     - Electron physics
-  #     - Magnetics
+      - Condensed matter
+      - Electron physics
+      - Magnetics
   #     - Nuclear physics
   #     - Optical physics
   #     - Quantum information science
   #     - Radiation
-  #     - Spectroscopy
+      - Spectroscopy
   #     - Thermodynamics
   #     - Time and frequency
   #
