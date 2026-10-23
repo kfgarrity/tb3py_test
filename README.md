@@ -18,8 +18,8 @@ the method described in
 The [documentation](https://pages.nist.gov/ThreeBodyTB.jl/) for
 ThreeBodyTB.jl covers detailed usage of the main code. The python
 wrapper can access any function from ThreeBodyTB.jl by prepending
-`tb3.jl.` for exported functions or by replacing `ThreeBodyTB.jl` for
-non-exported functions. For example, the Julia function `makecrys` can
+`tb3.jl.` for exported functions or by replacing `ThreeBodyTB.` for
+non-exported functions. For example, the exported function `makecrys` from ThreeBodyTB.jl can
 be accessed as follows:
 
 ```
@@ -52,21 +52,25 @@ which will produce output like
 
 ![bandstructure and dos](t.png)
 
-Basically, you need to write `tb3.jl.` before normal commands. A tutorial is available [here](https://pages.nist.gov/ThreeBodyTB.jl/ug_run/#Running-tight-binding-calculations)
+Basically, you need to write `tb3.jl.` before normal commands. A tutorial introducing relevant commands for code users is available [here](https://pages.nist.gov/ThreeBodyTB.jl/ug_run/#Running-tight-binding-calculations)
 
 # Installation
 
-To install, clone the repository and run the 
+To install, clone the repository and run a setup command.
 
 ```
 git clone git@github.com:kfgarrity/tb3py_test.git
 cd tb3py_test
 pip install -e .
+
 export JULIA_NUM_THREADS=1
 export PYTHON_JULIACALL_HANDLE_SIGNALS=yes
 ```
 
-The two environment variables are to prevent issues with multithreading between python and julia.
+The code will take a while to install and run the first time you run
+it, but should cache the most computationally expensive things. The
+two environment variables are to prevent issues with multithreading
+between python and Julia.
 
 
 
