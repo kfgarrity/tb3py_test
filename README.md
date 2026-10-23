@@ -74,9 +74,9 @@ between python and Julia.
 
 
 
-kevin.garrity@nist.gov
-Kevin F. Garrity 
-Material Data Division: 641.03
-Material Measurement Laboratory
-National Institute of Standards and Techonology (NIST)
-Gaitherburg, MD
+kevin.garrity@nist.gov  
+Kevin F. Garrity  
+Material Data Division: 641.03  
+Material Measurement Laboratory  
+National Institute of Standards and Techonology (NIST)  
+Gaitherburg, MD  
