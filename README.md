@@ -1,5 +1,7 @@
 # tb3py - Python Wrapper for ThreeBodyTB.jl
 
+<img align="right" src="https://github.com/kfgarrity/ThreeBodyTB.jl/blob/main/docs/src/assets/logo.svg" alt="logo" width="200" >
+
 This package is a simple python wrapper for
 [ThreeBodyTB.jl](https://github.com/usnistgov/ThreeBodyTB.jl) that
 makes installing and using the code within python easier. It is not
@@ -10,8 +12,6 @@ ThreeBodyTB.jl (see https://github.com/usnistgov/ThreeBodyTB.jl) is a
 Julia package to perform tight binding calculations. It is based on
 the method described in
 [PhysRevMaterials.7.044603](https://journals.aps.org/prmaterials/abstract/10.1103/PhysRevMaterials.7.044603).
-
-<img align="right" src="https://github.com/kfgarrity/ThreeBodyTB.jl/blob/main/docs/src/assets/logo.svg" alt="logo" width="200" >
 
 # Usage
 
@@ -50,7 +50,7 @@ performed as
 ```
 which will produce output like
 
-<img align="left" src="t.png" alt="logo" width="600" ><br>
+![t.png]
 
 Basically, you need to write `tb3.jl.` before normal commands. A tutorial is available [here](https://pages.nist.gov/ThreeBodyTB.jl/ug_run/#Running-tight-binding-calculations)
 
