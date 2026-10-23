@@ -50,7 +50,7 @@ performed as
 ```
 which will produce output like
 
-![t.png]
+![bandstructure and dos](t.png)
 
 Basically, you need to write `tb3.jl.` before normal commands. A tutorial is available [here](https://pages.nist.gov/ThreeBodyTB.jl/ug_run/#Running-tight-binding-calculations)
 
