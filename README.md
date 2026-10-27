@@ -130,7 +130,7 @@ export PYTHON_JULIACALL_HANDLE_SIGNALS=yes
 ```
 
 This will install julia if necessary to run the backend (julia version
->= 1.12 is necessary). The code will take a while to install and
+1.12+ is necessary). The code will take a while to install and
 precompile (10+ minutes) the first time you import it. This process
 should cache the most computationally expensive compilation, but there
 will still be a small delay the first time you run a function in a
