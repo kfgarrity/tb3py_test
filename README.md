@@ -5,8 +5,8 @@
 This package is a simple python wrapper for
 [ThreeBodyTB.jl](https://github.com/usnistgov/ThreeBodyTB.jl) that
 makes installing and using the code within python easier. It is not
-necessary to understand any Julia, and you get full access to the
-code.
+necessary to understand any [Julia](https://julialang.org/), and you
+get full access to the code.
 
 ThreeBodyTB.jl (see https://github.com/usnistgov/ThreeBodyTB.jl) is a
 Julia package to perform tight binding calculations. It is based on
@@ -18,13 +18,12 @@ the method described in
 The [documentation](https://pages.nist.gov/ThreeBodyTB.jl/) for
 ThreeBodyTB.jl covers detailed usage of the main code. The python
 wrapper can access any function from ThreeBodyTB.jl by prepending
-`tb3.jl.` for exported functions or by replacing `ThreeBodyTB.` for
-non-exported functions. For example, the exported function `makecrys` from ThreeBodyTB.jl can
+`tb3.jl.` . For example, the exported function `makecrys` from ThreeBodyTB.jl can
 be accessed as follows:
 
 ```
->>> import tb3py_test as tb3
->>> c = tb3py_test.jl.makecrys("POSCAR_example")
+>>> import tb3py as tb3
+>>> c = tb3.jl.makecrys("POSCAR_example")
 >>> c = tb3.jl.makecrys("POSCAR_example")
 >>> c
 Julia:
@@ -39,8 +38,9 @@ Si   0.25000  0.25000  0.25000
 
 >>>
 ```
+Using `tb3.jl.ThreeBodyTB.makecrys` also works, and that syntax works for non-exported functions.
 
-and an energy calculation and band structure calculation can be
+An energy calculation and band structure calculation can be
 performed as
 
 ```
@@ -54,13 +54,76 @@ which will produce output like
 
 Basically, you need to write `tb3.jl.` before normal commands. A tutorial introducing relevant commands for code users is available [here](https://pages.nist.gov/ThreeBodyTB.jl/ug_run/#Running-tight-binding-calculations)
 
+The code can also convert between numpy and julia objects fine. See:
+
+```
+>>> import numpy as np
+>>> A = np.eye(3) * 10
+>>> coords = np.zeros((1,3))
+>>> atoms = ["Si"]
+>>> tb3.jl.makecrys(A, coords, atoms)
+Julia:
+Units: Å
+
+A1=     10.00000  0.00000  0.00000
+A2=     0.00000  10.00000  0.00000
+A3=     0.00000  0.00000  10.00000
+
+Si   0.00000  0.00000  0.00000
+
+>>>
+```
+
+### Overloaded operators (slightly advanced)
+
+In some cases `ThreeBodyTB` can use overloaded operators to manipulate crystal structures, including generating supercells and scaling by a constant. It is possible to access this functionality in python using `seval` like this:
+```
+>>> from juliacall import Main as jl
+>>> jl.c = c #c is a crystal object visisble to python, we are making it visible to jl
+>>> jl.seval("(c * 3.0)")
+Julia:
+Units: Å
+
+A1=     7.80000  7.80000  0.00000
+A2=     7.80000  0.00000  7.80000
+A3=     0.00000  7.80000  7.80000
+
+Si   0.00000  0.00000  0.00000
+Si   0.25000  0.25000  0.25000
+
+>>> jl.seval("(c * [2,2,2])")
+Julia:
+Units: Å
+
+A1=     5.20000  5.20000  0.00000
+A2=     5.20000  0.00000  5.20000
+A3=     0.00000  5.20000  5.20000
+
+Si   0.00000  0.00000  0.00000
+Si   0.12500  0.12500  0.12500
+Si   0.00000  0.00000  0.50000
+Si   0.12500  0.12500  0.62500
+Si   0.00000  0.50000  0.00000
+Si   0.12500  0.62500  0.12500
+Si   0.00000  0.50000  0.50000
+Si   0.12500  0.62500  0.62500
+Si   0.50000  0.00000  0.00000
+Si   0.62500  0.12500  0.12500
+Si   0.50000  0.00000  0.50000
+Si   0.62500  0.12500  0.62500
+Si   0.50000  0.50000  0.00000
+Si   0.62500  0.62500  0.12500
+Si   0.50000  0.50000  0.50000
+Si   0.62500  0.62500  0.62500
+```
+
 # Installation
 
 To install, clone the repository and run a setup command.
 
 ```
-git clone git@github.com:kfgarrity/tb3py_test.git
-cd tb3py_test
+git clone git@github.com:kfgarrity/tb3py.git
+cd tb3py
 pip install -e .
 
 export JULIA_NUM_THREADS=1
