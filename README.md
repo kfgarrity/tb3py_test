@@ -24,7 +24,6 @@ be accessed as follows:
 ```
 >>> import tb3py as tb3
 >>> c = tb3.jl.makecrys("POSCAR_example")
->>> c = tb3.jl.makecrys("POSCAR_example")
 >>> c
 Julia:
 Units: Å
@@ -136,10 +135,11 @@ two environment variables are to prevent issues with multithreading
 between python and Julia.
 
 
+#Author
 
 kevin.garrity@nist.gov  
 Kevin F. Garrity  
 Material Data Division: 641.03  
 Material Measurement Laboratory  
 National Institute of Standards and Techonology (NIST)  
-Gaitherburg, MD  
+Gaithersburg, MD  
