@@ -16,7 +16,7 @@ the method described in
 # Usage
 
 The [documentation](https://pages.nist.gov/ThreeBodyTB.jl/) for
-ThreeBodyTB.jl covers detailed usage of the main code. The python
+ThreeBodyTB.jl covers detailed usage of the main julia code. The python
 wrapper can access any function from ThreeBodyTB.jl by prepending
 `tb3.jl.` . For example, the exported function `makecrys` from ThreeBodyTB.jl can
 be accessed as follows:
@@ -28,9 +28,9 @@ be accessed as follows:
 Julia:
 Units: Å
 
-A1=     5.00000  5.00000  0.00000
-A2=     5.00000  0.00000  5.00000
-A3=     0.00000  5.00000  5.00000
+A1=     2.60000  2.60000  0.00000
+A2=     2.60000  0.00000  2.60000
+A3=     0.00000  2.60000  2.60000
 
 Si   0.00000  0.00000  0.00000
 Si   0.25000  0.25000  0.25000
@@ -51,7 +51,7 @@ which will produce output like
 
 ![bandstructure and dos](t.png)
 
-Basically, you need to write `tb3.jl.` before normal commands. A tutorial introducing relevant commands for code users is available [here](https://pages.nist.gov/ThreeBodyTB.jl/ug_run/#Running-tight-binding-calculations)
+Basically, you need to write `tb3.jl.` before normal julia commands. A tutorial introducing relevant commands for code users is available [here](https://pages.nist.gov/ThreeBodyTB.jl/ug_run/#Running-tight-binding-calculations), it should be possible to access all that functionality from python.
 
 The code can also convert between numpy and julia objects fine. See:
 
@@ -59,7 +59,7 @@ The code can also convert between numpy and julia objects fine. See:
 >>> import numpy as np
 >>> A = np.eye(3) * 10
 >>> coords = np.zeros((1,3))
->>> atoms = ["Si"]
+>>> atoms = ["Ga"]
 >>> tb3.jl.makecrys(A, coords, atoms)
 Julia:
 Units: Å
@@ -68,17 +68,17 @@ A1=     10.00000  0.00000  0.00000
 A2=     0.00000  10.00000  0.00000
 A3=     0.00000  0.00000  10.00000
 
-Si   0.00000  0.00000  0.00000
+Ga   0.00000  0.00000  0.00000
 
 >>>
 ```
 
 ### Overloaded operators (slightly advanced)
 
-In some cases `ThreeBodyTB` can use overloaded operators to manipulate crystal structures, including generating supercells and scaling by a constant. It is possible to access this functionality in python using `seval` like this:
+In some cases `ThreeBodyTB` can use overloaded operators to manipulate crystal structures, including generating supercells and scaling by a constant. It is possible to access this syntax in python using `seval` like this:
 ```
 >>> from juliacall import Main as jl
->>> jl.c = c #c is a crystal object visisble to python, we are making it visible to jl
+>>> jl.c = c #c is a crystal object visible to python, we are making it visible to jl
 >>> jl.seval("(c * 3.0)")
 Julia:
 Units: Å
@@ -129,10 +129,15 @@ export JULIA_NUM_THREADS=1
 export PYTHON_JULIACALL_HANDLE_SIGNALS=yes
 ```
 
-The code will take a while to install and run the first time you run
-it, but should cache the most computationally expensive things. The
-two environment variables are to prevent issues with multithreading
-between python and Julia.
+This will install julia if necessary to run the backend (julia version
+>= 1.12 is necessary). The code will take a while to install and
+precompile (10+ minutes) the first time you import it. This process
+should cache the most computationally expensive compilation, but there
+will still be a small delay the first time you run a function in a
+given session.
+
+The two environment variables are to prevent issues with
+multithreading between python and Julia.
 
 
 # Author
