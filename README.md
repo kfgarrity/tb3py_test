@@ -146,6 +146,9 @@ multithreading between python and Julia.
 - [Paper: PhysRevMaterials.7.044603](https://journals.aps.org/prmaterials/abstract/10.1103/PhysRevMaterials.7.044603)
 - [Main documentation](https://pages.nist.gov/ThreeBodyTB.jl/) 
 - [Main tutorial](https://pages.nist.gov/ThreeBodyTB.jl/ug_run/#Running-tight-binding-calculations) 
+- [My NIST page](https://www.nist.gov/people/kevin-garrity)
+
+Good luck. Let me know if you have any problems.
 
 kevin.garrity@nist.gov  
 Kevin F. Garrity  
